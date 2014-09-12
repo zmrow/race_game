@@ -10,7 +10,7 @@
     this.run = function() {
       this.fieldPosition += this.speed;
       this.speed = Math.floor(Math.random() * 10);
-    }
+    };
   }
   
   function tackleTry(runner, tackler) {
@@ -42,7 +42,7 @@
   var LB = new Player("Aldon", 5, 8, 0);
   yards = 100;
 
-  while (RB.down = false || RB.fieldPosition < yards) {
+  while (RB.down = false && RB.fieldPosition < yards) {
     runPlay(RB,LB);
   };
 
