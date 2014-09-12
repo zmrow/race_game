@@ -3,14 +3,14 @@
     this.name = name;
     this.speed = speed;
     this.fieldPosition = 0;
-    //this.focus = Math.floor(Math.random() * 10);
     this.tackleStrength = tackleStrength;
     this.tackleBreak = tackleBreak;
+    this.down = false;
     
     this.advance = function() {
       this.fieldPosition += this.speed
       this.speed = Math.floor(Math.random() * 10)
-    }
+    };
 
     this.tackleTry = function(runner, tackler) {
       if (runner.tackleBreak > tackler.tackleStrenth) {
@@ -21,11 +21,17 @@
       else {
         console.log(tackler.name + " brings down " runner.name + "!");
         console.log("The play ends with a HUGE hit!");
+        runner.down = true;
       }
     };
 
     this.runPlay = function(runner, tackler) {
-      
+      runner.advance;
+      tackler.advance;
+      diff = Math.abs(runner.fieldPosition - tackler.fieldposition)
+        if ( diff <= 5 ) {
+          tackleTry()
+        }
 
     }
   }
@@ -33,6 +39,10 @@
   var RB = new Player("Marshawn", 8, 0, 9);
   var LB = new Player("Aldon", 5, 8, 0);
   yards = 100;
+
+  while (RB.down = false || runner.fieldPosition < 100) {
+    runne
+  }
 
   
 </script>
