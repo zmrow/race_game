@@ -7,43 +7,51 @@
     this.tackleBreak = tackleBreak;
     this.down = false;
     
-    this.advance = function() {
-      this.fieldPosition += this.speed
-      this.speed = Math.floor(Math.random() * 10)
-    };
-
-    this.tackleTry = function(runner, tackler) {
-      if (runner.tackleBreak > tackler.tackleStrenth) {
-        console.log(runner.name + " broke a tackle!");
-        runner.tackleBreak = Math.floor(Math.random() * 10);
-        tackler.tackleStrength = Math.floor(Math.random() * 10);
-      }
-      else {
-        console.log(tackler.name + " brings down " runner.name + "!");
-        console.log("The play ends with a HUGE hit!");
-        runner.down = true;
-      }
-    };
-
-    this.runPlay = function(runner, tackler) {
-      runner.advance;
-      tackler.advance;
-      diff = Math.abs(runner.fieldPosition - tackler.fieldposition)
-        if ( diff <= 5 ) {
-          tackleTry()
-        }
-
+    this.run = function() {
+      this.fieldPosition += this.speed;
+      this.speed = Math.floor(Math.random() * 10);
     }
   }
   
+  function tackleTry(runner, tackler) {
+    if (runner.tackleBreak > tackler.tackleStrenth) {
+      console.log(runner.name + " broke a tackle!");
+      runner.tackleBreak = Math.floor(Math.random() * 10);
+      tackler.tackleStrength = Math.floor(Math.random() * 10);
+    }
+    else {
+      console.log(tackler.name + " brings down " + runner.name + "!");
+      console.log("The play ends with a HUGE hit!");
+      runner.down = true;
+    }
+  };
+
+  function runPlay(runner, tackler) {
+    runner.run;
+    tackler.run;
+    diff = Math.abs(runner.fieldPosition - tackler.fieldPosition);
+    if (diff < 5) {
+      tackleTry(runner, tackler);
+    }
+    else {
+      console.log(runner.name + " is on a huge break!");
+    }
+  };
+
   var RB = new Player("Marshawn", 8, 0, 9);
   var LB = new Player("Aldon", 5, 8, 0);
   yards = 100;
 
-  while (RB.down = false || runner.fieldPosition < 100) {
-    runne
-  }
+  while (RB.down = false || RB.fieldPosition < yards) {
+    runPlay(RB,LB);
+  };
 
+
+//This is getting crazy stupid and complicated.
+//Procedure should be:
+//1. Players run
+//2. If players are within 5 yards, try to tackle
+//3. If RB is still up, run again.
   
 </script>
 
