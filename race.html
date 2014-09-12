@@ -3,9 +3,29 @@
     this.name = name;
     this.speed = speed;
     this.fieldPosition = 0;
+    //this.focus = Math.floor(Math.random() * 10);
     this.tackleStrength = tackleStrength;
     this.tackleBreak = tackleBreak;
-    this.run = function() {
+    
+    this.advance = function() {
+      this.fieldPosition += this.speed
+      this.speed = Math.floor(Math.random() * 10)
+    }
+
+    this.tackleTry = function(runner, tackler) {
+      if (runner.tackleBreak > tackler.tackleStrenth) {
+        console.log(runner.name + " broke a tackle!");
+        runner.tackleBreak = Math.floor(Math.random() * 10);
+        tackler.tackleStrength = Math.floor(Math.random() * 10);
+      }
+      else {
+        console.log(tackler.name + " brings down " runner.name + "!");
+        console.log("The play ends with a HUGE hit!");
+      }
+    };
+
+    this.runPlay = function(runner, tackler) {
+      
 
     }
   }
@@ -17,9 +37,9 @@
   
 </script>
 
-speed
-tackle probability
-tackle avoidance
-name
-position?  how close is the tackler?
-bonus beast mode?
+//speed
+//tackle probability
+//tackle avoidance
+//name
+//position?  how close is the tackler?
+//bonus beast mode?
